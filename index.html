@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<title>AngularJS Overview</title>
+<meta name="author" content="池田友洋, Tomohiro IKEDA, rilakkuma3xjapan" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<meta name="format-detection" content="telephone=no" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Code+Pro" type="text/css" media="all" />
+<link rel="stylesheet" href="colorbox/colorbox.css" type="text/css" media="all" />
+<style type="text/css">
+
+    * {
+        margin:0px;
+        padding:0px;
+        outline:none;
+    }
+
+    html, body {
+        font-size:16px;
+    }
+
+    body {
+        font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",
+                    "メイリオ", Meiryo,
+                    Osaka,
+                    "ＭＳ Ｐゴシック", "MS PGothic",
+                    sans-serif;
+        line-height:1.5;
+        color:#777;
+
+        min-width:320px;  /*Smartphone*/
+        background-color:#fafafa;
+
+        opacity:0;
+    }
+
+    body, #slide-container {
+        overflow:hidden;
+    }
+
+    #slide-container > section {
+        float:left;
+        width:800px;
+        height:800px;
+        background-color:#FFF;
+    }
+
+    #slide-0 {
+        background-image:url(images/AngularJS-Shield-huge.png);
+        background-repeat:no-repeat;
+        background-position:center center;
+
+        -webkit-background-size:50% 50%;
+           -moz-background-size:50% 50%;
+                background-size:50% 50%;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight:lighter;
+    }
+
+    #slide-0 h1 {
+        margin-top:1rem;
+        font-size:5rem;
+        font-weight:lighter;
+        text-align:center;
+    }
+
+    #slide-0 h2 {
+        font-size:3rem;
+        text-align:center;
+    }
+
+    #slide-1 h1 {
+        margin:1rem 0rem;
+        font-size:3rem;
+        text-align:center;
+    }
+
+    #slide-2 h1,
+    #slide-3 h1,
+    #slide-4 h1,
+    #slide-5 h1,
+    #slide-6 h1,
+    #slide-7 h1,
+    #slide-8 h1 {
+        margin:2rem 0rem 1rem 1rem;
+        font-size:2rem;
+    }
+
+    #slide-1 ol,
+    #slide-4 ul,
+    #slide-5 ul,
+    #slide-6 ul,
+    #slide-7 ul {
+        margin:0rem 2rem 0rem 5rem;
+        font-size:1.5rem;
+    }
+
+    #slide-1 ol li,
+    #slide-4 ul li,
+    #slide-5 ul li,
+    #slide-6 ul li,
+    #slide-7 ul li {
+        margin:1rem 0rem;
+    }
+
+    #slide-2 p,
+    #slide-3 p,
+    #slide-4 p,
+    #slide-8 p {
+        margin:1rem 2rem;
+        font-size:1.5rem;
+    }
+
+    figure {
+        text-align:center;
+    }
+
+    figcaption {
+        font-size:0.75rem;
+    }
+
+    pre {
+        margin-left:2rem;
+    }
+
+    code {
+        padding:1rem;
+        font-family:"Source Code Pro", monospace;
+        font-size:0.75rem;
+        overflow:scroll;
+    }
+
+    span.attention {
+        color:#F40;
+    }
+
+    .gist {
+        margin:1rem auto;
+        width:90%;
+    }
+
+    a {
+        color:#00bfff;
+        text-decoration:none;
+    }
+
+    a:hover {
+        color:#cc00cc;
+        text-decoration:underline;
+    }
+
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="colorbox/jquery.colorbox-min.js"></script>
+<script type="text/javascript">
+<!--
+    $(function() {
+
+        var SLIDE_WIDTH = 800;
+
+        var margin         = Math.floor((window.innerWidth - SLIDE_WIDTH) / 2);
+        var numberOfSlides = $('#slide-container > section').length;
+        var currentSlide   = 0;
+
+        $('#slide-container').css('width', (((SLIDE_WIDTH * numberOfSlides) + ((2 * margin) * (numberOfSlides + 1))) + 'px'));
+        $('#slide-container > section').css('margin', ('0px ' + margin + 'px'));
+
+        $('body').fadeTo('slow', 1.0, 'swing');
+
+        $(document).on('keydown', function(event) {
+            var isSlide = false;
+
+            if ((currentSlide < (numberOfSlides - 1)) && (event.keyCode === 39)) {
+                currentSlide++;
+                isSlide = true;
+            }
+
+            if ((currentSlide > 0) && (event.keyCode === 37)) {
+                currentSlide--;
+                isSlide = true;
+            }
+
+            if (isSlide) {
+                var marginLeft = (-1 * (currentSlide * SLIDE_WIDTH)) - (currentSlide * (2 * margin));
+
+                $('#slide-container').animate({'margin-left' : (marginLeft + 'px')}, 'slow', 'linear');
+            }
+        });
+
+        $('.colorbox').colorbox();
+    });
+//-->
+</script>
+<script type="text/javascript">
+<!--
+    (function() {
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    })();
+//-->
+</script>
+<script type="text/javascript">
+<!--
+    (function() {
+        try {
+            var pageTracker = _gat._getTracker("UA-41390233-1");
+            pageTracker._trackPageview();
+        } catch(err) {}
+    })();
+//-->
+</script>
+</head>
+
+
+<body>
+    <div id="slide-container">
+        <section id="slide-0">
+            <h1>AngularJS</h1>
+            <h2>Overview</h2>
+        </section>
+        <section id="slide-1">
+            <h1>Index</h1>
+            <ol>
+                <li>サーバーサイドMVC</li>
+                <li>クライアントサイドMVW</li>
+                <li>jQueryの役割</li>
+                <li>MVWフレームワークが必要な理由</li>
+                <li>AngularJSを選択する理由</li>
+                <li>AngularJSのアーキテクチャ</li>
+                <li>AngularJSのコーディング</li>
+            </ol>
+        </section>
+        <section id="slide-2">
+            <h1>サーバーサイドMVC (Model View Controller)</h1>
+            <figure>
+                <a href="images/mvc.png" class="colorbox" title="MVC">
+                    <img src="images/mvc.png" alt="サーバーサイドMVC" width="300" height="300" />
+                </a>
+                <figcaption>ロジックはコントローラーに集約される.</figcaption>
+            </figure>
+            <p>
+                <span class="attention">コントローラーの役割が強く</span>, ほとんどのロジックがコントローラーに集約される.
+            </p>
+        </section>
+        <section id="slide-3">
+            <h1>クライアントサイドMVW (Model View Whatever)</h1>
+            <figure>
+                <a href="images/mvw.png" class="colorbox" title="MVW">
+                    <img src="images/mvw.png" alt="クライアントサイドMVW" width="300" height="300" />
+                </a>
+                <figcaption>ロジックはモデルに集約され, ロジックによるデータの更新はビューに反映される</figcaption>
+            </figure>
+            <p>
+                コントローラの役割は弱く, <span class="attention">ビューとモデルの役割が強い</span>.
+                だから, MVCではなく, MVW (Whatever).
+            </p>
+        </section>
+        <section id="slide-4">
+            <h1>jQueryの役割</h1>
+            <ul>
+                <li>煩雑なDOM操作を抽象化する.</li>
+                <li>ブラウザ間のAPIの違い (主にIE) を隠蔽する</li>
+            </ul>
+            <h1>jQueryのみでのコーディング</h1>
+            <p>
+                <span class="attention">オブジェクト指向の機能をもたない</span>ので, 手続き的に記述せざる負えない.
+                ゆえに, 可読性の悪い煩雑なコードになる.
+            </p>
+<pre>
+<code>
+$(function() {
+    // jQueryの羅列 ....
+    // 可読性が悪い ...
+    // さらに, jQueryで動的にDOMを操作すると煩雑さが増す
+
+    $(&apos;button&apos;).on(&apos;click&apos;, function() { // .... });
+
+    $(&apos;:text&apos;).on(&apos;keyup&apos;, function() { // .... });
+
+    // ....
+});
+</code>
+</pre>
+        </section>
+        <section id="slide-5">
+            <h1>MVWフレームワークが必要な理由</h1>
+            <ul>
+                <li>ちょっとしたUIを作成するだけであれば不要</li>
+                <li>
+                    <span class="attention">Single Page Application</span>では, jQueryのみでは役不足.
+                </li>
+                <li>
+                    <span class="attention">モデルとビューの開発に注力する</span>.
+                </li>
+                <li>
+                    コントローラーに<span class="attention">オブジェクト指向の機能をもたせる</span>.
+                </li>
+            </ul>
+            <figure>
+                <a href="images/spa.png" class="colorbox" title="Single Page Application">
+                    <img src="images/spa.png" alt="Single Page Application" width="300" height="300" />
+                </a>
+                <figcaption>Single Page Application : 従来はサーバーサイドにあった多くの機能がクライアントサイドに移行している.</figcaption>
+            </figure>
+        </section>
+        <section id="slide-6">
+            <h1>AngularJSを選択する理由</h1>
+            <ul>
+                <li>Single Page Applicationに向いている (Backbone.jsはサイボウズなど大規模なクライアントサイドアプリケーション向き).</li>
+                <li>DOM操作がほぼ不要になるので, デザインとの連携がしやすい.</li>
+                <li>JSの次期仕様であるECMA the 6th Editionの機能を擬似的に実現している.
+                    <ul>
+                        <li>Object.observe</li>
+                        <li>Promise</li>
+                        <li>Web Components</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section id="slide-7">
+            <h1>AngularJSのアーキテクチャ</h1>
+            <ul>
+                <li>モデルが更新されれば, ビューが更新され, ビューが更新されればモデルが更新される (<span class="attention">双方向データバインディング</span>).</li>
+                <li>モデルとビューの関係に注力して開発が可能.</li>
+            </ul>
+            <figure>
+                <a href="images/angularjs-architecture.png" class="colorbox" title="AngularJS Architecture">
+                    <img src="images/angularjs-architecture.png" alt="AngularJS Architecture" width="300" height="300" />
+                </a>
+                <figcaption>AngularJS Architecture</figcaption>
+            </figure>
+        </section>
+        <section id="slide-8">
+            <h1>AngularJSのコーディング</h1>
+            <p><a href="https://gist.github.com/Korilakkuma/7577ca61fcfc908f9475" target="_blank">デモテンプレート</a></p>
+            <script src="https://gist.github.com/Korilakkuma/7577ca61fcfc908f9475.js"></script>
+        </section>
+    </div>
+</body>
+</html>
