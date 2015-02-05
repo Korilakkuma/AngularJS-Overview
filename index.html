@@ -108,6 +108,16 @@
         margin:1rem 0rem;
     }
 
+    ul ul,
+    ul ul ul {
+        margin:0rem 2rem 0rem 1rem !important;
+    }
+
+    ul ul ul li {
+        margin:0.5rem 0rem;
+        font-size:1rem;
+    }
+
     #slide-2 p,
     #slide-3 p,
     #slide-4 p,
@@ -317,7 +327,15 @@ $(function() {
                     <ul>
                         <li>Object.observe</li>
                         <li>Promise</li>
-                        <li>Web Components</li>
+                        <li>
+                            Web Components
+                            <ul>
+                                <li>Shadow DOM</li>
+                                <li>Custom Elements</li>
+                                <li>HTML Templates</li>
+                                <li>HTML Imports</li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -327,6 +345,7 @@ $(function() {
             <ul>
                 <li>モデルが更新されれば, ビューが更新され, ビューが更新されればモデルが更新される (<span class="attention">双方向データバインディング</span>).</li>
                 <li>モデルとビューの関係に注力して開発が可能.</li>
+                <li>テンプレート機能によって, 煩雑なDOM操作が不要.</li>
             </ul>
             <figure>
                 <a href="images/angularjs-architecture.png" class="colorbox" title="AngularJS Architecture">
