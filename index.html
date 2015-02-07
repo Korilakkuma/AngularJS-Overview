@@ -58,8 +58,20 @@
                 background-size:50% 50%;
     }
 
+    #slide-9,
+    #slide-10,
+    #slide-11,
+    #slide-12 {
+        overflow-y:scroll;
+    }
+
     h1, h2, h3, h4, h5, h6 {
         font-weight:lighter;
+    }
+
+    h1 {
+        margin:2rem 0rem 1rem 1rem;
+        font-size:2rem;
     }
 
     #slide-0 h1 {
@@ -70,6 +82,7 @@
     }
 
     #slide-0 h2 {
+        margin-top:-1.5rem;
         font-size:3rem;
         text-align:center;
     }
@@ -80,31 +93,14 @@
         text-align:center;
     }
 
-    #slide-2 h1,
-    #slide-3 h1,
-    #slide-4 h1,
-    #slide-5 h1,
-    #slide-6 h1,
-    #slide-7 h1,
-    #slide-8 h1 {
-        margin:2rem 0rem 1rem 1rem;
-        font-size:2rem;
-    }
-
     #slide-1 ol,
-    #slide-4 ul,
-    #slide-5 ul,
-    #slide-6 ul,
-    #slide-7 ul {
+    section > h1 + ul {
         margin:0rem 2rem 0rem 5rem;
         font-size:1.5rem;
     }
 
     #slide-1 ol li,
-    #slide-4 ul li,
-    #slide-5 ul li,
-    #slide-6 ul li,
-    #slide-7 ul li {
+    section > h1 + ul li {
         margin:1rem 0rem;
     }
 
@@ -118,10 +114,7 @@
         font-size:1rem;
     }
 
-    #slide-2 p,
-    #slide-3 p,
-    #slide-4 p,
-    #slide-8 p {
+    p {
         margin:1rem 2rem;
         font-size:1.5rem;
     }
@@ -358,6 +351,43 @@ $(function() {
             <h1>AngularJSのコーディング</h1>
             <p><a href="https://gist.github.com/Korilakkuma/7577ca61fcfc908f9475" target="_blank">デモテンプレート</a></p>
             <script src="https://gist.github.com/Korilakkuma/7577ca61fcfc908f9475.js"></script>
+        </section>
+        <section id="slide-9">
+            <h1>ディレクティブ (ng-bind / Angular expression / ng-cloak / ng-bind-html)</h1>
+            <script src="https://gist.github.com/Korilakkuma/adbb7ff04c3a39dd1067.js"></script>
+        </section>
+        <section id="slide-10">
+            <h1>ディレクティブ (ng-show / ng-hide / ng-if)</h1>
+            <script src="https://gist.github.com/Korilakkuma/712e1484277f0532e006.js"></script>
+        </section>
+        <section id="slide-11">
+            <h1>ディレクティブ (ng-style / ng-class)</h1>
+            <script src="https://gist.github.com/Korilakkuma/e0755447feeb9ad510da.js"></script>
+        </section>
+        <section id="slide-12">
+            <h1>ディレクティブ (ng-repeat)</h1>
+            <script src="https://gist.github.com/Korilakkuma/c5b576c6e5cf6c140b30.js"></script>
+        </section>
+        <section id="slide-13">
+            <h1>イベント系ディレクティブ</h1>
+            <ul>
+                <li>ng-click</li>
+                <li>ng-dblclick</li>
+                <li>ng-mousedown</li>
+                <li>ng-mouseup</li>
+                <li>ng-mouseenter</li>
+                <li>ng-mouseleave</li>
+                <li>ng-mousemove</li>
+                <li>ng-submit</li>
+                <li>ng-change (<span class="attention">ng-modelが必要</span>)</li>
+                <li>... etc</li>
+                <li>$event (イベントオブジェクトをラッパーしたオブジェクト)</li>
+            </ul>
+        </section>
+        <section id="slide-14">
+            <h1>ディレクティブ まとめデモ</h1>
+            <p><a href="https://gist.github.com/Korilakkuma/3f3bacc3eb9fd3c97861" target="_blank">デモテンプレート</a></p>
+            <script src="https://gist.github.com/Korilakkuma/3f3bacc3eb9fd3c97861.js"></script>
         </section>
     </div>
 </body>
