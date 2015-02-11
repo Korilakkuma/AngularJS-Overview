@@ -58,13 +58,7 @@
                 background-size:50% 50%;
     }
 
-    #slide-9,
-    #slide-10,
-    #slide-11,
-    #slide-12,
-    #slide-15,
-    #slide-16,
-    #slide-17 {
+    .scroll {
         overflow-y:scroll;
     }
 
@@ -355,19 +349,19 @@ $(function() {
             <p><a href="https://gist.github.com/Korilakkuma/7577ca61fcfc908f9475" target="_blank">デモテンプレート</a></p>
             <script src="https://gist.github.com/Korilakkuma/7577ca61fcfc908f9475.js"></script>
         </section>
-        <section id="slide-9">
+        <section id="slide-9" class="scroll">
             <h1>ディレクティブ (ng-bind / Angular expression / ng-cloak / ng-bind-html)</h1>
             <script src="https://gist.github.com/Korilakkuma/adbb7ff04c3a39dd1067.js"></script>
         </section>
-        <section id="slide-10">
+        <section id="slide-10" class="scroll">
             <h1>ディレクティブ (ng-show / ng-hide / ng-if)</h1>
             <script src="https://gist.github.com/Korilakkuma/712e1484277f0532e006.js"></script>
         </section>
-        <section id="slide-11">
+        <section id="slide-11" class="scroll">
             <h1>ディレクティブ (ng-style / ng-class)</h1>
             <script src="https://gist.github.com/Korilakkuma/e0755447feeb9ad510da.js"></script>
         </section>
-        <section id="slide-12">
+        <section id="slide-12" class="scroll">
             <h1>ディレクティブ (ng-repeat)</h1>
             <script src="https://gist.github.com/Korilakkuma/c5b576c6e5cf6c140b30.js"></script>
         </section>
@@ -392,17 +386,39 @@ $(function() {
             <p><a href="https://gist.github.com/Korilakkuma/3f3bacc3eb9fd3c97861" target="_blank">デモテンプレート</a></p>
             <script src="https://gist.github.com/Korilakkuma/3f3bacc3eb9fd3c97861.js"></script>
         </section>
-        <section id="slide-15">
+        <section id="slide-15" class="scroll">
             <h1>$httpサービス (GET)</h1>
             <script src="https://gist.github.com/Korilakkuma/dfa3843c80ccc3794a3f.js"></script>
         </section>
-        <section id="slide-16">
+        <section id="slide-16" class="scroll">
             <h1>$httpサービス (POST)</h1>
             <script src="https://gist.github.com/Korilakkuma/b3adbbf1150ecba867fa.js"></script>
         </section>
-        <section id="slide-17">
+        <section id="slide-17" class="scroll">
             <h1>$timeoutサービス</h1>
             <script src="https://gist.github.com/Korilakkuma/6f7a35fc2f611e44000c.js"></script>
+        </section>
+        <section id="slide-18" class="scroll">
+            <h1>カスタムディレクティブ</h1>
+            <script src="https://gist.github.com/Korilakkuma/487c7d8297a14e2e7833.js"></script>
+<pre>
+<code>
+(function() {
+
+    var app = angular.module('app', []);
+
+    app.directive('xElement', ['$timeout', function($timeout) {
+        return {
+            restrict : 'EA',  // カスタム要素・カスタム属性として利用する場合
+            link     : function(scope, iElement, iAttrs, controller, iTransculde) {
+                // コンポーネントしたいコードを記述する
+            }
+        };
+    }]);
+
+})();
+</code>
+</pre>
         </section>
     </div>
 </body>
