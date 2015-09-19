@@ -173,20 +173,32 @@
         $('body').fadeTo('slow', 1.0, 'swing');
 
         $(document).on('keydown', function(event) {
+            var ARROW_RIGHT = 39;
+            var ARROW_LEFT  = 37;
+
             var isSlide = false;
 
-            if ((currentSlide < (numberOfSlides - 1)) && (event.keyCode === 39)) {
-                currentSlide++;
-                isSlide = true;
-            }
+            switch (event.keyCode) {
+                case ARROW_RIGHT :
+                    if (currentSlide < (numberOfSlides - 1)) {
+                        currentSlide++;
+                        isSlide = true;
+                    }
 
-            if ((currentSlide > 0) && (event.keyCode === 37)) {
-                currentSlide--;
-                isSlide = true;
+                    break;
+                case ARROW_LEFT :
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        isSlide = true;
+                    }
+
+                    break;
+                default :
+                    break;
             }
 
             if (isSlide) {
-                var marginLeft = (-1 * (currentSlide * SLIDE_WIDTH)) - (currentSlide * (2 * margin));
+                var marginLeft  = (-1 * (currentSlide * SLIDE_WIDTH)) - (currentSlide * (2 * margin));
 
                 $('#slide-container').animate({'margin-left' : (marginLeft + 'px')}, 'slow', 'linear');
             }
