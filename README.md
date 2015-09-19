@@ -3,4 +3,4 @@ AngularJS Overview
 
 * [Explain AngularJS Overview](https://korilakkuma.github.io/AngularJS-Overview/)
 
-Copyright 2014@Tomohiro IKEDA
+Copyright (c) 2014 Tomohiro IKEDA (Korilakkuma)
